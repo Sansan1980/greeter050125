@@ -6,16 +6,14 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-//Для того чтобы наш тестовый класс мог использовать возможности Mockito, необходимо расширить его с помощью
-//MockitoExtension
-//. Это делается при помощи аннотации
 
-//@ExtendWith(MockitoExtension.class)
 public class GreeterServiceTest {
-    private final GreeterServise greeterServise = new GreeterServise(new ServiceHello( ));//new ServiceHello( ) приходит
-    // от инжекции в классе ServiceHello |||| public  ServiceHello(){   this.random = new Random()}
+    ServiceHello serviceHelloMock = Mockito.mock(ServiceHello.class);
+    // Настроим поведение мока
+  private final  GreeterServise greeterServise = new GreeterServise(new ServiceHello());
 
 
     @Test
@@ -23,5 +21,23 @@ public class GreeterServiceTest {
     public void WithName() {
         String result = greeterServise.greet("Johan");
         Assertions.assertEquals("Hello, Johan", result);
+    }
+    @Test
+    @DisplayName("Позитивный- когда значение Name - пришло валидное")
+    public void WithNameIsEmpty() {
+        String result = greeterServise.greet("");
+        Assertions.assertEquals("Hello, Anonimus", result);
+    }
+    @Test
+    @DisplayName("Негативный- когда значение NameNull")
+    public void WithNameNull() {
+        String result = greeterServise.greet(null);
+        Assertions.assertEquals("Hello, Anonimus", result);
+    }
+    @Test
+    @DisplayName("Негативный- когда значение NameIsBlank")
+    public void WithNameIsBlank() {
+        String result = greeterServise.greet("");
+        Assertions.assertEquals("Hello, Anonimus", result);
     }
 }

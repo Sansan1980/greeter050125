@@ -12,6 +12,8 @@ public class GreeterController {
     public GreeterController(GreeterServise greeterServise) {
         this.greeterServise = greeterServise;
     }
+
+
     @GetMapping("/greet")
     public String greet(@RequestParam(value = "name",required = false)String name) {
        return greeterServise.greet(name);
