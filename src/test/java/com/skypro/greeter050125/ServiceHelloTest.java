@@ -12,12 +12,29 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 public class ServiceHelloTest {
+    /*Опишем шаги для создания тестового класса для
+HelloService
+.
+
+Создадим класс тестирования
+HelloServiceTest
+.
+Создадим мок-объект
+Random
+ для тестирования.
+Внедрим мок-объект
+Random
+ в наш сервис с помощью конструктора.
+Напишем тесты для всех значений, возвращаемых методом
+random.nextInt(1, 5)
+.*/
     private ServiceHello serviceHello;
     private Random randomMock;//это нужно для того чтобы создать мок класса рандома с этой пееременной
 
     @BeforeEach
     public void setUp() {
-        randomMock = mock(Random.class);// Создаем мок объект Random
+        randomMock = mock(Random.class);
+        // Создаем мок объект Random
         // Передаем его в ServiceHello serviceHello инициализируя  serviceHello через new ServiceHello() (показываем, что при тестировании из этого класса мы не учитываем бизнесс - логику
         // тестируемого класса ServiseHello. Ставим "заглушку " на класс Random- делаем вместо этого класса фальшивку
         // где прописываем и случайность цифр и необходимый ответ-возврат значений, по сути просто указываем  , что и в какой момент возвращать!(?)(кому возвращать?)

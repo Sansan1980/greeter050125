@@ -9,6 +9,8 @@ public class GreeterServise {
     public GreeterServise(ServiceHello serviceHello) {
         this.serviceHello = serviceHello;
     }
+
+
     public String greet(String name) {
         if (name == null || name.isBlank() || name.isEmpty()) {
             return serviceHello.randomHello() + ", Anonimus";

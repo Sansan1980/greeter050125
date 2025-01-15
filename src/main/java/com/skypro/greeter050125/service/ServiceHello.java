@@ -9,7 +9,7 @@ public class ServiceHello {
     private final Random random;//почему здесь немогу поставить new Random
 
     public  ServiceHello(){
-        this.random = new Random();//это для GreeterServiceTest для инициализации инжекции поля greeterServise
+        this.random = new Random();//это для GreeterService
     }
     public ServiceHello(Random randomMock){//(randomMock - показал что и откуда приходит) //это для теста ServiseHelloTest для
         // инициализации инжекции поля  serviceHello //public class ServiceHelloTest
