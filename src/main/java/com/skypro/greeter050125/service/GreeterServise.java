@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class GreeterServise {
+
     private final ServiceHello serviceHello;
 
     public GreeterServise(ServiceHello serviceHello) {

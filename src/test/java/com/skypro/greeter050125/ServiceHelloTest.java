@@ -7,22 +7,25 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Random;
 
+import static com.skypro.greeter050125.TestUtils.randomMock;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 public class ServiceHelloTest {
-    private ServiceHello serviceHello;
-    private Random randomMock;
+   // передаем мок объект Random в сервис public class ServiceHello
+    private final ServiceHello serviceHello = new ServiceHello(randomMock);
+  //  private Random randomMock;
 
-    @BeforeEach
-    public void setUp() {
-        randomMock = mock(Random.class);// Создаем мок объект Random
-        // Передаем его в ServiceHello serviceHello инициализируя  serviceHello через new ServiceHello() (показываем, что при тестировании из этого класса мы не учитываем бизнесс - логику
+//    @BeforeEach
+//    public void setUp() {
+     //   randomMock = mock(Random.class);// Создаем мок объект Random
+        // Передаем его в ServiceHello serviceHello инициализируя  serviceHello через new ServiceHello() (показываем,
+        // что при тестировании из этого класса мы не учитываем бизнесс - логику
         // тестируемого класса ServiseHello. Ставим "заглушку " на класс Random- делаем вместо этого класса фальшивку
-        // где прописываем и случайность цифр и необходимый ответ-возврат значений, по сути просто указываем  , что и в какой момент возвращать!(?)(кому возвращать?)
-        serviceHello = new ServiceHello(randomMock);// передаем мок объект Random в сервис public class ServiceHello
-    }
+        // где прописываем и случайность цифр и необходимый ответ-возврат значений, по сути просто указываем  , что и
+        // в какой момент возвращать!(?)(кому возвращать?)
+   // }
 
     @Test
     @DisplayName("Мок  метод randomHello когда пришла еденица и case  1-> Hello ")
@@ -53,8 +56,8 @@ public class ServiceHelloTest {
         assertEquals("Salyt", result);
     }
     @Test
-    @DisplayName("Мок  метод randomHello когда пришла 4 и case  4-> Salyt ")
-    public void whenRandomIsFourOrMore_ThenReturnSalyt() {
+    @DisplayName("Мок  метод randomHello когда пришла 4 и case  4-> Hay ")
+    public void whenRandomIsFourOrMore_ThenReturnHay() {
         //программируем мок возвращать еденицу
         when(randomMock.nextInt(1, 5)).thenReturn(4);
         String result = serviceHello.randomHello();
