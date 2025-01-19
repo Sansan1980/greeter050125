@@ -32,21 +32,26 @@ public class GreeterServiceTest {
     @Test
     @DisplayName("Позитивный- когда значение Name - пришло валидное")
     public void WithName() {
-        when(randomMock.nextInt(1, 5)).thenReturn(1);
+     //   when(randomMock.nextInt(1, 5)).thenReturn(1);
+        when(serviceHello.randomHello()).thenReturn("Hello");
         String result = greeterServise.greet("Johan");
         Assertions.assertEquals("Hello, Johan", result);
     }
     @Test
-    @DisplayName("Позитивный- когда значение NameIsBlank ")
+    @DisplayName("Негативный- когда значение NameIsBlank ")
     public void WithNameIsBlank() {
-        when(serviceHello.randomHello()).thenReturn("Hello, Anonimus");
+        when(serviceHello.randomHello()).thenReturn("Privet");
+       // when(randomMock.nextInt(1, 5)).thenReturn(2);
         String result = greeterServise.greet("");
-        Assertions.assertEquals("Hello, Anonimus", result);
+        Assertions.assertEquals("Privet, Anonimus", result);
+
     }
     @Test
     @DisplayName("Позитивный- когда значение NameIsEmpty")
     public void WithNameIsEmpty() {
+      //  when(randomMock.nextInt(1, 5)).thenReturn(3);
+       when(serviceHello.randomHello()).thenReturn("Salyt");
         String result = greeterServise.greet(" ");
-        Assertions.assertEquals("Hello, Anonimus", result);
+        Assertions.assertEquals("Salyt, Anonimus", result);
     }
 }

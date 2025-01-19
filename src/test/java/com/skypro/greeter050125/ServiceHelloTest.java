@@ -14,18 +14,19 @@ import static org.mockito.Mockito.when;
 
 public class ServiceHelloTest {
    // передаем мок объект Random в сервис public class ServiceHello
-    private final ServiceHello serviceHello = new ServiceHello(randomMock);
-  //  private Random randomMock;
+   private Random randomMock;
+    private  ServiceHello serviceHello ;
 
-//    @BeforeEach
-//    public void setUp() {
-     //   randomMock = mock(Random.class);// Создаем мок объект Random
-        // Передаем его в ServiceHello serviceHello инициализируя  serviceHello через new ServiceHello() (показываем,
-        // что при тестировании из этого класса мы не учитываем бизнесс - логику
-        // тестируемого класса ServiseHello. Ставим "заглушку " на класс Random- делаем вместо этого класса фальшивку
-        // где прописываем и случайность цифр и необходимый ответ-возврат значений, по сути просто указываем  , что и
-        // в какой момент возвращать!(?)(кому возвращать?)
-   // }
+    @BeforeEach
+    public void setUp() {
+        randomMock = mock(Random.class);// Создаем мок объект Random
+//         Передаем его в ServiceHello serviceHello инициализируя  serviceHello через new ServiceHello() (показываем,
+//         что при тестировании из этого класса мы не учитываем бизнесс - логику
+//         тестируемого класса ServiseHello. Ставим "заглушку " на класс Random- делаем вместо этого класса фальшивку
+//         где прописываем и случайность цифр и необходимый ответ-возврат значений, по сути просто указываем  , что и
+//         в какой момент возвращать!(?)(кому возвращать?)
+        serviceHello = new ServiceHello(randomMock);
+    }
 
     @Test
     @DisplayName("Мок  метод randomHello когда пришла еденица и case  1-> Hello ")
