@@ -65,10 +65,10 @@ public class ServiceHello {
     }
     public String randomHello() {
         return switch (random.nextInt(1, 5)) {
-            case 1-> "Hello";
-            case 2-> "Privet";
-            case 3-> "Salyt";
-            default -> "Hay";
+            case 1-> "Hello";//здесь может быть вызов более сложного кода, например стримма.
+            case 2-> "Privet";//здесь может быть вызов более сложного кода, например стримма.
+            case 3-> "Salyt";//здесь может быть вызов более сложного кода, например стримма.
+            default -> "Hay";//здесь может быть вызов более сложного кода, например стримма.
         };
     }
 
